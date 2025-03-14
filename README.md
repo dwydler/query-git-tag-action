@@ -1,4 +1,4 @@
-# query-tag-action
+# query-git-tag-action
 
 A GitHub Action allowing users to query tags via `git describe --tags`.
 
@@ -41,7 +41,7 @@ Default: `false`
 This option allows for users who have already performed an unshallow operation to skip the additonal unshallow in this action. This is marked as optional because it will use default behavior if unspecified. 
 
 
-**NOTE** If you have already performed an unshallow in a previous step, you must pass `skip-unshallow: "true"` in any `query-tag-action` step following that unshallow. A future version may check and handle this logic gracefully without user input.
+**NOTE** If you have already performed an unshallow in a previous step, you must pass `skip-unshallow: "true"` in any `query-git-tag-action` step following that unshallow. A future version may check and handle this logic gracefully without user input.
 
 ## Outputs
 
