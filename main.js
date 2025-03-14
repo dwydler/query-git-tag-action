@@ -29,11 +29,13 @@ try {
     const skipUnshallow = getInput('skip-unshallow') === 'true';
     const abbrev = getInput("abbrev");
     const exactMatch = getInput('exact-match') === 'true';
+    const noTagText = getInput('no-tags-text');
 
     var includeOption = '';
     var excludeOption = '';
     var commitIshOption = '';
     var abbrevOption = '';
+    var noTagTextOption = 'NO_TAGS';
 
     if (typeof include === 'string' && include.length > 0) {
         includeOption = `--match '${include}'`;
@@ -54,6 +56,10 @@ try {
       abbrevOption = `--abbrev=${abbrev}`;
     }
 
+    if (typeof noTagText === 'string') {
+        noTagTextOption = `'${noTagText}'`;
+    }
+
     var unshallowCmd = skipUnshallow ? '' : 'git fetch --prune --unshallow &&'
     var exactMatchOption = exactMatch ? '--exact-match' : ''
 
@@ -63,8 +69,9 @@ try {
 
     exec(cmd, (err, tag, stderr) => {
         if (err) {
-            console.error(`Unable to find an earlier tag.\n${stderr}`);
-            return process.exit(1);
+            console.log(`Unable to find an earlier tag.\n${stderr}`);
+            console.log(`Outputting tag: ${noTagTextOption}`)
+            return setOutput('tag', noTagTextOption.trim());
         }
         console.log(`Outputting tag: ${tag.trim()}`)
         return setOutput('tag', tag.trim());

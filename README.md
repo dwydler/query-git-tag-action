@@ -51,6 +51,14 @@ Default: `false`
 
 This option adds the `--exact-match` option to the command which can be useful if you want to see if a tag exists.
 
+### `no-tags-text`
+
+**Optional** Text to output if no tags were found
+
+Default: `NO_TAGS`
+
+The text to return if `git describe` does not find any tags. This can then be used in an `if condition` on subsequent steps.
+
 ## Outputs
 
 ### `tag`
