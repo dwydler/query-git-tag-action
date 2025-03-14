@@ -17,7 +17,7 @@ on: [push, release, pull_request]
 
 jobs:
 
-  my_job:
+  TestUnit-Testcase01:
     runs-on: ubuntu-latest
 
     steps:
@@ -45,7 +45,7 @@ jobs:
         echo 'Output from Find Tag: ${{steps.tagger.outputs.tag}}'
         echo 'Output from Find RC Tag: ${{steps.rcs.outputs.tag}}'
 
-  my_job2:
+  TestUnit-Testcase02:
     runs-on: ubuntu-latest
 
     steps:
