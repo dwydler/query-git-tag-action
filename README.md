@@ -43,6 +43,14 @@ This option allows for users who have already performed an unshallow operation t
 
 **NOTE** If you have already performed an unshallow in a previous step, you must pass `skip-unshallow: "true"` in any `query-git-tag-action` step following that unshallow. A future version may check and handle this logic gracefully without user input.
 
+### `exact-match`
+
+**Optional** Only output exact matches: "true" or "false"
+
+Default: `false`
+
+This option adds the `--exact-match` option to the command which can be useful if you want to see if a tag exists.
+
 ## Outputs
 
 ### `tag`
@@ -93,7 +101,7 @@ No automated tests are provided here because this action just builds a standard 
 The example from above will produce the following command:
 
 ```bash
-git fetch --prune --unshallow && git describe --tags --abbrev=0 --match 'v*' --exclude '*-rc*' HEAD~
+git fetch --prune --unshallow && git describe --tags --abbrev=0 --match 'v*' --exclude '*-rc*' --exact-match HEAD~
 ```
 
 The above command is built by the following parts:
@@ -102,6 +110,7 @@ The above command is built by the following parts:
 * `include` determines whether to generate `--match` and defines the value `v*`
 * `exclude` determines whether to generate `--exclude` and defines the value `*-rc*`
 * `commit-ish` determines whether to generate the command option `HEAD~`.
+* `exact-match` determined whether to generate `--exact-match`.
 
 Please see [tagged.yml](./.github/workflows/tagged.yml) for some use cases.
 
