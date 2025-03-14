@@ -20,6 +20,9 @@ jobs:
   TestUnit-Testcase01:
     runs-on: ubuntu-latest
 
+    permissions:
+      contents: read
+
     steps:
     - name: Checkout
       uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683 # v4.2.2
@@ -45,8 +48,12 @@ jobs:
         echo 'Output from Find Tag: ${{steps.tagger.outputs.tag}}'
         echo 'Output from Find RC Tag: ${{steps.rcs.outputs.tag}}'
 
+        
   TestUnit-Testcase02:
     runs-on: ubuntu-latest
+
+    permissions:
+      contents: read
 
     steps:
     - name: Checkout
