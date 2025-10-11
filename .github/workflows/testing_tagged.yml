@@ -78,3 +78,36 @@ jobs:
         run: |
           echo 'Output from Find Tag (commit-ish example): ${{steps.tagger.outputs.tag}}'
           echo 'Output from Find RC Tag: ${{steps.rcs.outputs.tag}}'
+
+
+  TestUnit-Testcase03:
+    name: TestUnit-Case03
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@08c6903cd8c0fde910a37f88322edcfb5dd907a8  # v5.0.0
+
+      - name: Find specific Tag (commit-ish HEAD)
+        id: tagger
+        uses: ./
+        with:
+          include: 'v2.3'
+          exact-match: 'false'
+          no-tags-text: 'false'
+          commit-ish: 'HEAD'
+
+      - name: Find not existing Tag (commit-ish HEAD)
+        id: rcs
+        uses: ./
+        with:
+          include: 'v100.3'
+          exact-match: 'false'
+          no-tags-text: 'false'
+          commit-ish: 'HEAD'
+
+      - name: Show Tag
+        id: display
+        run: |
+          echo 'Output from Find Tag (commit-ish example): ${{steps.tagger.outputs.tag}}'
+          echo 'Output from Find RC Tag: ${{steps.rcs.outputs.tag}}'
