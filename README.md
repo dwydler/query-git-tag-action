@@ -73,33 +73,36 @@ with:
 
 
 ```yaml
+---
 name: Tagged
 on: [release]
 
 jobs:
-
   my_job:
     runs-on: ubuntu-latest
 
     steps:
-    - name: Checkout
-      uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683 # v4.2.2
-    # Optionally: unshallow as a separate operation
-    # - name: Unshallow
-    #   run: git fetch --prune --unshallow
-    - name: Find Tag
-      id: tagger
-      uses: jimschubert/query-tag-action@v1
-      with:
-        include: 'v*'
-        exclude: '*-rc*'
-        commit-ish: 'HEAD~'
-        # if you unshallow in a separate step, use the following option:
-        # skip-unshallow: 'true'
-    - name: Show Tag
-      id: display
-      run: |
-        echo 'Output from Find Tag: ${{steps.tagger.outputs.tag}}'
+      - name: Checkout
+        uses: actions/checkout@v5
+
+      # Optionally: unshallow as a separate operation
+      # - name: Unshallow
+      #   run: git fetch --prune --unshallow
+
+      - name: Find Tag
+        id: tagger
+        uses: dwydler/query-git-tag-action@v2
+        with:
+          include: 'v*'
+          exclude: '*-rc*'
+          commit-ish: 'HEAD~'
+          # if you unshallow in a separate step, use the following option:
+          # skip-unshallow: 'true'
+
+      - name: Show Tag
+        id: display
+        run: |
+          echo 'Output from Find Tag: ${{steps.tagger.outputs.tag}}'
 ```
 
 ### Testing
