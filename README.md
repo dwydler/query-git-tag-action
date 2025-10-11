@@ -120,7 +120,7 @@ The above command is built by the following parts:
 * `commit-ish` determines whether to generate the command option `HEAD~`.
 * `exact-match` determined whether to generate `--exact-match`.
 
-Please see [tagged.yml](./.github/workflows/tagged.yml) for some use cases.
+Please see [testing_tagged.yml](./.github/workflows/testing_tagged.yml) for some use cases.
 
 ## License
 
