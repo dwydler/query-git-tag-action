@@ -98,7 +98,7 @@ jobs:
           commit-ish: 'HEAD'
 
       - name: Find not existing Tag (commit-ish HEAD)
-        id: rcs
+        id: net
         uses: ./
         with:
           include: 'v100.3'
@@ -109,5 +109,5 @@ jobs:
       - name: Show Tag
         id: display
         run: |
-          echo 'Output from Find Tag (commit-ish example): ${{steps.tagger.outputs.tag}}'
-          echo 'Output from Find RC Tag: ${{steps.rcs.outputs.tag}}'
+          echo 'Output from Find specific Tag (commit-ish HEAD): ${{steps.tagger.outputs.tag}}'
+          echo 'Output from FFind not existing Tag (commit-ish HEAD): ${{steps.net.outputs.tag}}'
