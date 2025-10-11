@@ -1,5 +1,5 @@
 ---
-name: Testing - Try to build the action
+name: Testing - Check the function of the action
 
 "on":
   pull_request:
@@ -13,8 +13,8 @@ permissions:
   contents: read
 
 jobs:
-  BuildUnit-Case01:
-    name: Testing-BuildCase01
+  Testing-Buildcase01:
+    name: Testing-Buildcase01
     runs-on: ubuntu-latest
 
     steps:
