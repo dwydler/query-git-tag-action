@@ -15,6 +15,7 @@
 
 name: Testing Tagged
 
+"on":
   pull_request:
     branches:
       - "master"
