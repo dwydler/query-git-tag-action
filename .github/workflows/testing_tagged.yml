@@ -20,13 +20,14 @@ name: Testing Tagged
     branches:
       - "master"
 
+permissions:
+  contents: read
+
+
 jobs:
 
   TestUnit-Testcase01:
     runs-on: ubuntu-latest
-
-    permissions:
-      contents: read
 
     steps:
     - name: Checkout
@@ -56,9 +57,6 @@ jobs:
         
   TestUnit-Testcase02:
     runs-on: ubuntu-latest
-
-    permissions:
-      contents: read
 
     steps:
     - name: Checkout
