@@ -13,7 +13,7 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
-name: Testing Tagged
+name: Test - Validate function of the action
 
 "on":
   pull_request:
