@@ -67,7 +67,7 @@ The tag determined by your inputs.
 
 ## Example usage
 
-uses: jimschubert/query-tag-action@v1
+uses: dwydler/query-git-tag-action@v2
 with:
   who-to-greet: 'Mona the Octocat'
 
