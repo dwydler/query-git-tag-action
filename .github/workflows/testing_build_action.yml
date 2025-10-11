@@ -6,9 +6,9 @@ name: Testing - Try to build the action
     branches:
       - "master"
     paths:
-      - 'action.yml'    
+      - 'action.yml'
       - 'main.js'
-      
+
 permissions:
   contents: read
 
