@@ -8,7 +8,7 @@ inputs:
     required: false
     default: '*'
   exclude:
-    description:  'Glob pattern of tags to exclude'
+    description: 'Glob pattern of tags to exclude'
     required: false
   commit-ish:
     description: 'Commit-ish object names to describe'
