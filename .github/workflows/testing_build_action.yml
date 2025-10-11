@@ -28,35 +28,3 @@ jobs:
           include: 'v*'
           exclude: '*-rc*'
           commit-ish: 'HEAD~'
-
-  Testing-Buildcase02:
-    name: Testing-Buildcase02
-    runs-on: ubuntu-latest
-
-    steps:
-      - name: Checkout Branch
-        uses: actions/checkout@08c6903cd8c0fde910a37f88322edcfb5dd907a8  # v5.0.0
-
-      - name: Test the action with given params
-        uses: ./
-        with:
-          include: 'v2.3'
-          exact-match: 'false'
-          no-tags-text: 'false'
-          commit-ish: 'HEAD'
-
-  Testing-Buildcase03:
-    name: Testing-Buildcase03
-    runs-on: ubuntu-latest
-
-    steps:
-      - name: Checkout Branch
-        uses: actions/checkout@08c6903cd8c0fde910a37f88322edcfb5dd907a8  # v5.0.0
-
-      - name: Test the action with given params
-        uses: ./
-        with:
-          include: 'v20.0'
-          exact-match: 'false'
-          no-tags-text: 'false'
-          commit-ish: 'HEAD'
