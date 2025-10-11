@@ -25,6 +25,7 @@ permissions:
 
 jobs:
   TestUnit-Testcase01:
+    name: TestUnit-Case01
     runs-on: ubuntu-latest
 
     steps:
@@ -58,6 +59,7 @@ jobs:
 
 
   TestUnit-Testcase02:
+    name: TestUnit-Case02
     runs-on: ubuntu-latest
 
     steps:
