@@ -1,0 +1,30 @@
+---
+name: Testing - Check the function of the action
+
+"on":
+  pull_request:
+    branches:
+      - "master"
+    paths:
+      - 'action.yml'
+      - 'main.js'
+
+permissions:
+  contents: read
+
+jobs:
+  Testing-Buildcase01:
+    name: Testing-Buildcase01
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout Branch
+        uses: actions/checkout@08c6903cd8c0fde910a37f88322edcfb5dd907a8  # v5.0.0
+
+      - name: Build and test the action
+        uses: ./
+        with:
+          # input params if you have any
+          include: 'v*'
+          exclude: '*-rc*'
+          commit-ish: 'HEAD~'
