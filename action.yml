@@ -1,7 +1,9 @@
 ---
 name: 'Query Git Tag'
+
 description: 'Queries for a git tag using git describe'
 author: 'Jim Schubert, Daniel Wydler'
+
 inputs:
   include:
     description: 'Glob pattern of tags to include'
