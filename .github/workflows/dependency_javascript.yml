@@ -5,7 +5,7 @@ name: "Dependency App - JavaScript action"
    workflow_dispatch:
 
    schedule:
-      - cron: "0 5 * * *"
+      - cron: "0 5 * * 6"
 
 env:
    ACTION_FILENAME: "action.yml"
