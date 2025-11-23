@@ -30,7 +30,7 @@ Default: `HEAD~`
 
 A `commit-ish` value is any which may point to a commit in git. You're probably already familiar with these (`HEAD`, `HEAD~`, `HEAD^`, `@{ 2 weeks ago }`, etc.). Check git's documentation for more details.
 
-By default, `git describe` will point to `HEAD` which may result in the current tag on release builds. A user may want the current tag without manipulating `GITHUB_REF` as provided by [GitHub Actions Environment Variables](https://help.github.com/en/actions/configuring-and-managing-workflows/using-environment-variables); pass `commit-ish: "HEAD"` as an input and ignore the warning logged by this action.
+By default, `git describe` will point to `HEAD` which may result in the current tag on release builds. A user may want the current tag without manipulating `GITHUB_REF` as provided by [GitHub Actions Environment Variables](https://docs.github.com/en/actions/how-tos/write-workflows/choose-what-workflows-do/use-variables); pass `commit-ish: "HEAD"` as an input and ignore the warning logged by this action.
 
 ### `skip-unshallow`
 
