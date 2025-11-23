@@ -36,7 +36,7 @@ jobs:
          # active: ${{ steps.get.outputs.active }}
          # maintenance: ${{ steps.get.outputs.maintenance }}
          lts: ${{ steps.get.outputs.lts }}
-         current: ${{ steps.get.outputs.current }}
+         current: ${{ steps.get.outputs.active }}
          # min: ${{ steps.get.outputs.min }}
 
 
