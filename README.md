@@ -83,7 +83,7 @@ jobs:
 
     steps:
       - name: Checkout
-        uses: actions/checkout@v5
+        uses: actions/checkout@1af3b93b6815bc44a9784bd300feb67ff0d1eeb3  # v6.0.0
 
       # Optionally: unshallow as a separate operation
       # - name: Unshallow
@@ -91,7 +91,7 @@ jobs:
 
       - name: Find Tag
         id: tagger
-        uses: dwydler/query-git-tag-action@v2
+        uses: dwydler/query-git-tag-action@d197f166eac192eda7b1abc440b3369a9df929ff # v2.4
         with:
           include: 'v*'
           exclude: '*-rc*'
