@@ -66,12 +66,6 @@ The text to return if `git describe` does not find any tags. This can then be us
 The tag determined by your inputs.
 
 ## Example usage
-
-uses: dwydler/query-git-tag-action@v2
-with:
-  who-to-greet: 'Mona the Octocat'
-
-
 ```yaml
 ---
 name: Tagged
