@@ -30,7 +30,7 @@ Default: `HEAD~`
 
 A `commit-ish` value is any which may point to a commit in git. You're probably already familiar with these (`HEAD`, `HEAD~`, `HEAD^`, `@{ 2 weeks ago }`, etc.). Check git's documentation for more details.
 
-By default, `git describe` will point to `HEAD` which may result in the current tag on release builds. A user may want the current tag without manipulating `GITHUB_REF` as provided by [GitHub Actions Environment Variables](https://help.github.com/en/actions/configuring-and-managing-workflows/using-environment-variables); pass `commit-ish: "HEAD"` as an input and ignore the warning logged by this action.
+By default, `git describe` will point to `HEAD` which may result in the current tag on release builds. A user may want the current tag without manipulating `GITHUB_REF` as provided by [GitHub Actions Environment Variables](https://docs.github.com/en/actions/how-tos/write-workflows/choose-what-workflows-do/use-variables); pass `commit-ish: "HEAD"` as an input and ignore the warning logged by this action.
 
 ### `skip-unshallow`
 
@@ -66,40 +66,37 @@ The text to return if `git describe` does not find any tags. This can then be us
 The tag determined by your inputs.
 
 ## Example usage
-
-uses: jimschubert/query-tag-action@v1
-with:
-  who-to-greet: 'Mona the Octocat'
-
-
 ```yaml
+---
 name: Tagged
 on: [release]
 
 jobs:
-
   my_job:
     runs-on: ubuntu-latest
 
     steps:
-    - name: Checkout
-      uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683 # v4.2.2
-    # Optionally: unshallow as a separate operation
-    # - name: Unshallow
-    #   run: git fetch --prune --unshallow
-    - name: Find Tag
-      id: tagger
-      uses: jimschubert/query-tag-action@v1
-      with:
-        include: 'v*'
-        exclude: '*-rc*'
-        commit-ish: 'HEAD~'
-        # if you unshallow in a separate step, use the following option:
-        # skip-unshallow: 'true'
-    - name: Show Tag
-      id: display
-      run: |
-        echo 'Output from Find Tag: ${{steps.tagger.outputs.tag}}'
+      - name: Checkout
+        uses: actions/checkout@1af3b93b6815bc44a9784bd300feb67ff0d1eeb3  # v6.0.0
+
+      # Optionally: unshallow as a separate operation
+      # - name: Unshallow
+      #   run: git fetch --prune --unshallow
+
+      - name: Find Tag
+        id: tagger
+        uses: dwydler/query-git-tag-action@d197f166eac192eda7b1abc440b3369a9df929ff # v2.4
+        with:
+          include: 'v*'
+          exclude: '*-rc*'
+          commit-ish: 'HEAD~'
+          # if you unshallow in a separate step, use the following option:
+          # skip-unshallow: 'true'
+
+      - name: Show Tag
+        id: display
+        run: |
+          echo 'Output from Find Tag: ${{steps.tagger.outputs.tag}}'
 ```
 
 ### Testing
@@ -120,7 +117,7 @@ The above command is built by the following parts:
 * `commit-ish` determines whether to generate the command option `HEAD~`.
 * `exact-match` determined whether to generate `--exact-match`.
 
-Please see [tagged.yml](./.github/workflows/tagged.yml) for some use cases.
+Please see [testing_tagged.yml](./.github/workflows/testing_tagged.yml) for some use cases.
 
 ## License
 
