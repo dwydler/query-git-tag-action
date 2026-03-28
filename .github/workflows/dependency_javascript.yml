@@ -22,7 +22,7 @@ jobs:
       steps:
          - name: Node LTS versions
            id: get
-           uses: msimerson/node-lts-versions@2c529228898a89f07e71d5ed39f7034a6fbe4df8  # v1.7.4
+           uses: msimerson/node-lts-versions@7e810493db7d120163abc12951445036718e00f5  # v1.7.5
 
          - name: Output informations
            run: |
