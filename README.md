@@ -85,7 +85,7 @@ jobs:
 
       - name: Find Tag
         id: tagger
-        uses: dwydler/query-git-tag-action@d197f166eac192eda7b1abc440b3369a9df929ff # v2.4
+        uses: wydler/query-git-tag-action@d197f166eac192eda7b1abc440b3369a9df929ff # v2.4
         with:
           include: 'v*'
           exclude: '*-rc*'
